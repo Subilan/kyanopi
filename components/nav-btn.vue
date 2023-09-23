@@ -24,7 +24,7 @@ const route = useRoute();
 .nav-btn {
   display: inline-flex;
   align-items: center;
-  gap: .35rem;
+  gap: .5rem;
   font-size: .9rem;
 
   background: transparent;

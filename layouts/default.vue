@@ -1,13 +1,13 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar" :class="{active: navbarActive}">
     <div class="title">Kyanopi</div>
     <div class="tabs">
       <nav-btn to="/">
-        <svg-icon type="memory" :path="MemoryImage"></svg-icon>
-        主页
+        <icon :path="MemoryMap"/>
+        那一天
       </nav-btn>
       <nav-btn to="/gallery">
-        <span class="material-icons">image</span>
+        <icon color="white" :path="MemoryImage"/>
         图库
       </nav-btn>
     </div>
@@ -18,8 +18,10 @@
 </template>
 
 <script lang="ts" setup>
-import {MemoryImage} from "@pictogrammers/memory/lib/icons";
-console.log(MemoryImage)
+import {MemoryMap, MemoryImage} from "@pictogrammers/memory";
+import {ref} from "@vue/reactivity";
+
+const navbarActive = ref(false);
 </script>
 
 <style lang="less">
@@ -30,8 +32,18 @@ console.log(MemoryImage)
   padding: .7rem 1rem;
   display: flex;
   align-items: center;
+  height: 42px;
 
   gap: 1rem;
+
+  transform: translateY(calc(-42px - 1.4rem));
+  opacity: 0;
+  transition: all .2s ease;
+
+  &.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .title {
