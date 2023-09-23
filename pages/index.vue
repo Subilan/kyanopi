@@ -4,6 +4,26 @@
       <div class="main-picture">
         <div class="main-picture-img-container">
           <img class="main-picture-img" src="~/assets/IMG_4401.jpg"/>
+          <div class="main-picture-meta">
+            <div class="meta-bar">
+              <div class="meta">
+                <icon color="white" scale=".7" :path="MemoryClock"/>
+                2023.08.19 星期六 18:39
+              </div>
+              <div class="meta">
+                <icon color="white" scale=".7" :path="MemoryAlphaF"/>
+                1.6 26mm
+              </div>
+              <div class="meta">
+                <icon color="white" scale=".7" :path="MemoryCompass"/>
+                中国香港特别行政区油尖旺区星光大道
+              </div>
+              <div class="meta">
+                <icon color="white" viewBox="0 0 24 27" scale=".8" :path="mdiApple"/>
+                iPhone 13
+              </div>
+            </div>
+          </div>
         </div>
         <div class="main-picture-caption">
           <div class="title">维多利亚港的夕阳</div>
@@ -23,6 +43,11 @@
   </div>
 </template>
 
+<script lang="ts" setup>
+import {MemoryCompass, MemoryClock, MemoryAlphaF} from "@pictogrammers/memory/lib/icons";
+import {mdiApple} from "@mdi/js";
+</script>
+
 <style lang="less" scoped>
 .main-picture-container {
   height: 100vh;
@@ -33,20 +58,57 @@
   justify-content: center;
 }
 
+.main-picture-meta{
+  width: 100%;
+  position: absolute;
+  bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.meta-bar {
+  display: flex;
+  align-items: center;
+  font-size: .8rem;
+  background: rgba(0, 0, 0, .4);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  justify-content: center;
+  padding: .2rem 1rem;
+  width: calc(100% - 3.5rem);
+
+  .meta {
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    gap: .2rem;
+
+    &::after {
+      content: "|";
+      margin: 0 .5rem;
+      color: rgba(255,255,255, .4);
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+}
+
 .main-picture {
   max-width: 1200px;
   position: relative;
   padding: 0 1rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 
   .main-picture-img-container {
-    width: 90%;
+    width: 65%;
+    position: relative;
 
     .main-picture-img {
-      width: 700px;
-      transform: rotate(-3deg) scale(.9);
+      width: 100%;
       box-shadow: 3px 3px 10px rgba(0, 0, 0, .2);
       border-radius: 10px;
     }
@@ -54,14 +116,14 @@
 
   .main-picture-caption {
     font-family: 'Noto Serif SC', '华文中宋', '宋体', SimSong, serif;
-
+    width: 35%;
     .title {
       font-weight: 900;
       font-size: 2.5rem;
     }
 
     .description {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
     }
   }
 }

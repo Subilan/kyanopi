@@ -1,6 +1,6 @@
 <template>
   <div class="icon">
-    <svg :style="{'transform': `scale(${scale})`, 'fill': `${color}`}" viewBox="0 0 21 21" height="21px" width="21px">
+    <svg :style="{'transform': `scale(${scale})`, 'fill': `${color}`}" :viewBox="viewBox" :height="height" :width="width">
       <path :d="path"/>
     </svg>
   </div>
@@ -20,6 +20,18 @@ const props = defineProps({
     type: String,
     validator: (v: string) => ["black", "white"].includes(v),
     default: "black"
+  },
+  viewBox: {
+    type: String,
+    default: "0 0 21 21"
+  },
+  height: {
+    type: String,
+    default: "21px"
+  },
+  width: {
+    type: String,
+    default: "21px"
   }
 })
 </script>
