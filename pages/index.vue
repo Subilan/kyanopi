@@ -104,7 +104,7 @@ import {mdiApple} from "@mdi/js";
   gap: 2rem;
 
   .main-picture-img-container {
-    width: 65%;
+    width: 62%;
     position: relative;
 
     .main-picture-img {
@@ -116,7 +116,7 @@ import {mdiApple} from "@mdi/js";
 
   .main-picture-caption {
     font-family: 'Noto Serif SC', '华文中宋', '宋体', SimSong, serif;
-    width: 35%;
+    width: 38%;
     .title {
       font-weight: 900;
       font-size: 2.5rem;
