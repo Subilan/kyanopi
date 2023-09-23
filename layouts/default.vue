@@ -3,11 +3,11 @@
     <div class="title">Kyanopi</div>
     <div class="tabs">
       <nav-btn to="/">
-        <icon :path="MemoryMap"/>
+        <icon :color="getBlackOrWhite(route.path === '/')" :path="MemoryMap"/>
         那一天
       </nav-btn>
       <nav-btn to="/gallery">
-        <icon color="white" :path="MemoryImage"/>
+        <icon :color="getBlackOrWhite(route.path === '/gallery')" :path="MemoryImage"/>
         图库
       </nav-btn>
     </div>
@@ -20,16 +20,19 @@
 
 <script lang="ts" setup>
 import {MemoryMap, MemoryImage} from "@pictogrammers/memory";
+import {getBlackOrWhite} from "~/fn";
 import {ref} from "@vue/reactivity";
+import {useRoute} from "vue-router";
 
 const navbarActive = ref(false);
+const route = useRoute();
 </script>
 
 <style lang="less">
 #nav-activator {
   z-index: 1;
   display: block;
-  height: 40px;
+  height: 42px;
   width: 100vw;
   position: absolute;
   top: 0;
