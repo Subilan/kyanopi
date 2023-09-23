@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar" :class="{active: navbarActive}">
+  <nav class="navbar" :class="{active: navbarActive}" @mouseleave="navbarActive = false">
     <div class="title">Kyanopi</div>
     <div class="tabs">
       <nav-btn to="/">
@@ -12,6 +12,7 @@
       </nav-btn>
     </div>
   </nav>
+  <div id="nav-activator" @mouseenter="navbarActive = true"/>
   <div class="container">
     <slot/>
   </div>
@@ -25,6 +26,15 @@ const navbarActive = ref(false);
 </script>
 
 <style lang="less">
+#nav-activator {
+  z-index: 1;
+  display: block;
+  height: 40px;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+}
+
 .navbar {
   background: black;
   width: calc(100vw - 2rem);
@@ -33,6 +43,9 @@ const navbarActive = ref(false);
   display: flex;
   align-items: center;
   height: 42px;
+  z-index: 100;
+  position: fixed;
+  top: 0;
 
   gap: 1rem;
 
