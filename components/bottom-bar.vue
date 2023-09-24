@@ -9,6 +9,9 @@
         <div class="bottom-title">
           那一天
         </div>
+        <div class="bottom-subtitle">
+          维多利亚港的夕阳
+        </div>
       </div>
       <div class="bottom-bar-right">
 
@@ -28,7 +31,17 @@ const bottombarActive = ref(false);
   font-family: 'Noto Serif SC', '华文中宋', '宋体', SimSong, serif;
   font-weight: 900;
   font-style: italic;
-  font-size: 2.5rem;
+  font-size: 2.7rem;
+  position: fixed;
+  bottom: calc(72px - 50%);
+  text-shadow: -2px -2px 0 #000,
+    0 -2px 0 #000,
+    2px -2px 0 #000,
+  2px 0 0 #000,
+  2px 2px 0 #000,
+  0 2px 0 #000,
+  -2px 2px 0 #000,
+  -2px 0 0 #000;
 }
 
 .bottom-bar {
@@ -45,7 +58,7 @@ const bottombarActive = ref(false);
   z-index: 100;
   opacity: 0;
   transform: translateY(72px);
-  transition: all .2s cubic-bezier(.49,0,.52,1);
+  transition: all .2s cubic-bezier(.49, 0, .52, 1);
 
   &.active {
     transform: translateY(0);
@@ -56,6 +69,17 @@ const bottombarActive = ref(false);
     max-width: 1200px;
     display: flex;
     justify-content: center;
+  }
+}
+
+.bottom-bar-center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .bottom-subtitle {
+    transform: translateY(1rem);
+    font-family: 'Noto Serif SC', '华文中宋', '宋体', SimSong, serif;
   }
 }
 
