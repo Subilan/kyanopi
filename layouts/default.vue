@@ -16,6 +16,7 @@
   <div class="container">
     <slot/>
   </div>
+  <bottom-bar/>
 </template>
 
 <script lang="ts" setup>
@@ -23,6 +24,7 @@ import {MemoryMap, MemoryImage} from "@pictogrammers/memory";
 import {getBlackOrWhite} from "~/fn";
 import {ref} from "@vue/reactivity";
 import {useRoute} from "vue-router";
+import BottomBar from "~/components/bottom-bar.vue";
 
 const navbarActive = ref(false);
 const route = useRoute();
@@ -34,7 +36,7 @@ const route = useRoute();
   display: block;
   height: 42px;
   width: 100vw;
-  position: absolute;
+  position: fixed;
   top: 0;
 }
 
