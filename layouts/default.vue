@@ -54,7 +54,7 @@ const route = useRoute();
 
   transform: translateY(calc(-42px - 1.4rem));
   opacity: 0;
-  transition: all .2s ease;
+  transition: all .2s cubic-bezier(.49,0,.52,1);
 
   &.active {
     transform: translateY(0);
