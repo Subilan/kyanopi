@@ -1,6 +1,6 @@
 <template>
   <div class="icon">
-    <svg :style="{'transform': `scale(${scale})`, 'fill': `${color}`}" :viewBox="viewBox" :height="height" :width="width">
+    <svg :style="getStyle()" :viewBox="viewBox" :height="height" :width="width">
       <path :d="path"/>
     </svg>
   </div>
@@ -17,9 +17,7 @@ const props = defineProps({
     default: "1"
   },
   color: {
-    type: String,
-    validator: (v: string) => ["black", "white"].includes(v),
-    default: "black"
+    type: String
   },
   viewBox: {
     type: String,
@@ -34,6 +32,19 @@ const props = defineProps({
     default: "21px"
   }
 })
+
+function getStyle() {
+  const result = {
+    transform: `scale(${props.scale})`
+  }
+
+  if (props.color) {
+    // @ts-ignore
+    result['fill'] = props.color;
+  }
+
+  return result;
+}
 </script>
 
 <style scoped lang="less">

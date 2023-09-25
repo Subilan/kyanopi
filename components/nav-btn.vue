@@ -1,5 +1,5 @@
 <template>
-    <div class="nav-btn" :class="{active: route.href === props.to}">
+  <div class="nav-btn" :class="{active: route.href === props.to}">
     <slot/>
   </div>
 </template>
@@ -41,6 +41,20 @@ const route = useRoute();
   &:not(.active) {
     &:hover, &:focus {
       background: rgba(255, 255, 255, .3);
+    }
+  }
+}
+</style>
+
+<style lang="less">
+.nav-btn {
+  .icon svg {
+    fill: white;
+  }
+
+  &.active {
+    .icon svg {
+      fill: black;
     }
   }
 }

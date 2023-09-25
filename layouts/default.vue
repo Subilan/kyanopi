@@ -3,11 +3,11 @@
     <div class="title">Kyanopi</div>
     <div class="tabs">
       <nav-btn to="/">
-        <icon :color="getBlackOrWhite(route.path === '/')" :path="MemoryMap"/>
+        <icon :path="MemoryMap"/>
         那一天
       </nav-btn>
       <nav-btn to="/gallery">
-        <icon :color="getBlackOrWhite(route.path === '/gallery')" :path="MemoryImage"/>
+        <icon :path="MemoryImage"/>
         图库
       </nav-btn>
     </div>
