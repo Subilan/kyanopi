@@ -3,7 +3,14 @@
   <div class="bottom-bar" :class="{active: bottombarActive}" @mouseleave="bottombarActive = false">
     <div class="bottom-bar-inner">
       <div class="bottom-bar-left">
-
+        <nav-btn>
+          <icon scale=".8" :path="MemoryScript"/>
+          图片参数
+        </nav-btn>
+        <nav-btn>
+          <icon scale=".8" :path="MemoryHeart"/>
+          喜欢
+        </nav-btn>
       </div>
       <div class="bottom-bar-center">
         <div class="bottom-title">
@@ -14,7 +21,14 @@
         </div>
       </div>
       <div class="bottom-bar-right">
-
+        <nav-btn>
+          <icon scale=".8" :path="MemoryTooltipAboveText"/>
+          关于
+        </nav-btn>
+        <nav-btn>
+          <icon scale=".8" :path="MemoryArrowTopRightCircle"/>
+          前往博客
+        </nav-btn>
       </div>
     </div>
   </div>
@@ -22,6 +36,7 @@
 
 <script lang="ts" setup>
 import {ref} from 'vue';
+import {MemoryScript, MemoryTooltipAboveText, MemoryArrowTopRightCircle, MemoryHeart} from "@pictogrammers/memory/lib/icons";
 
 const bottombarActive = ref(false);
 </script>
@@ -69,6 +84,7 @@ const bottombarActive = ref(false);
     max-width: 1200px;
     display: flex;
     justify-content: center;
+    gap: 2rem;
   }
 }
 
